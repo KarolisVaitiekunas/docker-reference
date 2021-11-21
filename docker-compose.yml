@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  cors_server:
+    container_name: cors-server
+    restart: always
+    build: ./server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - client
+
+  client:
+    container_name: client-container
+    restart: always
+    build: ./client
+    ports:
+      - "3000:3000"
